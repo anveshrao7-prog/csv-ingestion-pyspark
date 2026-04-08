@@ -4,11 +4,11 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 df = spark.read.option("header", True) \
-    .option("inferSchema", True) \
+    .option("inferSchema", True)\
     .csv("data/movies.csv")
 
-df.show(5)
+#df.show(10,False)
 df.printSchema()
 
-df.write.mode("overwrite").parquet("output/data_parquet")
+df.write.mode("overWrite").parquet("output/data_parquet")
 print("Task completed successfully!")
